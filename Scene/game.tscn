@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxy8dy73f3mjc"]
+[gd_scene load_steps=3 format=3 uid="uid://dxy8dy73f3mjc"]
 
 [ext_resource type="PackedScene" uid="uid://dbnqoldmgvc7c" path="res://Scene/player.tscn" id="1_mhtsl"]
+[ext_resource type="PackedScene" uid="uid://cosw5mo2jr5i4" path="res://Scene/tile_map.tscn" id="2_w51g1"]
 
 [node name="game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_mhtsl")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(4.93, 4.93)
+
+[node name="Node2D" parent="." instance=ExtResource("2_w51g1")]
+z_index = -10
+position = Vector2(-9, -33)

@@ -1,25 +1,32 @@
-extends CharacterBody2D
+extends Node2D
+
+var current_path: Array[Vector2i] = []
+const SPEED = 100
+const TARGET_SWITCH_DIST = 1
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+func _process(delta: float) -> void:
+	follow_path(delta)
 
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+func recalculate_path_to_target(target: Vector2):
+	if Map.map == null:
+		return 
+	var start = Map.map.get_closest_cell_coord(position)
+	var end = Map.map.get_closest_cell_coord(target)
+	current_path = Map.map.find_path_in_map(start, end)
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+func on_mouse_left_click(mouse_glob_pos: Vector2):
+	recalculate_path_to_target(mouse_glob_pos)
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+func follow_path(delta: float):
+	if len(current_path) == 0: 
+		return
+	var target: Vector2 = Map.map.coord_to_world(current_path[0])
+	position += SPEED*(target - position).normalized()*delta
+	if (target - position).length() < TARGET_SWITCH_DIST:
+		current_path.pop_front()
 
-	move_and_slide()
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("left_click"):
+		on_mouse_left_click(get_global_mouse_position())
