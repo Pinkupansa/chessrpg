@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://cosw5mo2jr5i4"]
 
 [ext_resource type="Texture2D" uid="uid://drjjfydjnd84p" path="res://Assets/isometric tileset/spritesheet.png" id="1_m8lil"]
-[ext_resource type="Script" uid="uid://dxrbo0qgtpv8j" path="res://Scene/map.gd" id="2_pelya"]
+[ext_resource type="Script" uid="uid://dxrbo0qgtpv8j" path="res://Assets/Scripts/map.gd" id="2_pelya"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8lil"]
 texture = ExtResource("1_m8lil")

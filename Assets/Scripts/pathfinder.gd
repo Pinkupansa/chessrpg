@@ -22,6 +22,9 @@ static func find_path(get_neighbours_function: Callable, start: Vector2i, end: V
 
 		#look at all neighbours of the cell
 		var neighbours = get_neighbours_function.call(current_cell)
+		if i%2 == 0:
+			neighbours.reverse() # otherwise x direction is always looked at first which makes ugly paths
+
 		for neighbour in neighbours:
 			if not neighbour in predecessor: #if the neighbour is not visited already
 				predecessor[neighbour] = current_cell #remember that this cell called the neighbour

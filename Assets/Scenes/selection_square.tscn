@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwirftbertw2r"]
+
+[ext_resource type="Texture2D" uid="uid://betjrd7ooer16" path="res://Assets/selection_square.png" id="1_knia0"]
+
+[node name="SelectionSquare" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_knia0")

@@ -1,2 +1,5 @@
-res://Scene/player.tscn
-res://Scene/game.tscn
+res://Assets/Scenes/chessboard.tscn
+res://Assets/Scripts/combat_manager.gd
+res://Assets/Scenes/placeholder_piece.tscn
+res://Assets/Scenes/combat_scene_1.tscn
+res://Assets/Scripts/player_combat.gd

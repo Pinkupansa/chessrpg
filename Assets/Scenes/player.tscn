@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://dbnqoldmgvc7c"]
 
 [ext_resource type="Texture2D" uid="uid://cgwyp71hgl3p2" path="res://Assets/critters/badger/critter_badger_SE_idle.png" id="1_kelma"]
-[ext_resource type="Script" uid="uid://r6en78ddyak2" path="res://Scene/player.gd" id="1_y8w33"]
+[ext_resource type="Script" uid="uid://r6en78ddyak2" path="res://Assets/Scripts/player_worldmap_motion.gd" id="1_y8w33"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8w33"]
 atlas = ExtResource("1_kelma")
